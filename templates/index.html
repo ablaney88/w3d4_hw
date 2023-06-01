@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Events List!</h1>
+
+    <form action="/events" method="post">
+      <label for="Event">Event</label>
+      <input type="text" name="Event" id="Event">
+
+      <label for="Date">Date</label>
+      <input type="text" name="Date" id="Date">
+
+      <label for="Room Location">Room Location</label>
+      <input type="text" name="Room Location" id="Room Location">
+
+      <label for="Description">Description</label>
+      <textarea name="Description" id="Description" rows="1" cols="30"></textarea>
+
+
+      <input type="submit" value="Add Event">
+    </form>
+
+    {% for event in events %}
+    <div>
+      {{ event.name_of_event }}: {{ event.date }}, {{ event.room_location }}, <b>{{ event.description }}</b>
+        
+    </div>
+    {% endfor %}
+{% endblock %}
